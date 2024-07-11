@@ -37,6 +37,12 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    // Spring Doc 관련 인증은 수행 X
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring()
+                .requestMatchers("/v3/api-docs/**","/swagger-ui.html", "/swagger-ui/**");
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
