@@ -6,7 +6,8 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
+//@Getter @Setter
+@Data
 public class UserInfo {
 
     @Id
